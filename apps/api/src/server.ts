@@ -11,6 +11,10 @@ import { adminRouter } from "./routes/admin";
 import { loadEnv } from "./config/env";
 import { bootstrapAdmin } from "./services/admin/bootstrapAdmin";
 
+function normalizeOrigin(origin: string) {
+  return origin.trim().replace(/\/+$/, "").toLowerCase();
+}
+
 export function createServer() {
   const env = loadEnv();
   const app = express();
@@ -20,7 +24,7 @@ export function createServer() {
   app.use(
     cors({
       origin: (origin, callback) => {
-        if (!origin || env.webOrigins.includes(origin)) {
+        if (!origin || env.webOrigins.includes(normalizeOrigin(origin))) {
           callback(null, true);
           return;
         }

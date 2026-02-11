@@ -36,6 +36,10 @@ type Env = {
 
 let cachedEnv: Env | undefined;
 
+function normalizeOrigin(origin: string) {
+  return origin.trim().replace(/\/+$/, "").toLowerCase();
+}
+
 export function loadEnv() {
   if (cachedEnv) {
     return cachedEnv;
@@ -62,7 +66,7 @@ export function loadEnv() {
     jwtSecret: parsed.JWT_SECRET,
     webOrigins: (parsed.WEB_ORIGIN ?? "http://localhost:3000")
       .split(",")
-      .map((item) => item.trim())
+      .map((item) => normalizeOrigin(item))
       .filter(Boolean),
     cloudinaryCloudName: parsed.CLOUDINARY_CLOUD_NAME,
     cloudinaryApiKey: parsed.CLOUDINARY_API_KEY,
