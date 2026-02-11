@@ -22,18 +22,19 @@ Commands (from repo root):
 
 ## Deployments
 
-### Full stack on Render
-- This repo includes `render.yaml` configured for both services:
-  - `qpt-api` (`apps/api`)
-  - `qpt-web` (`apps/web`)
-- In Render, create a new Blueprint from this repository.
-
-Set these env vars in Render before first production use:
-- `qpt-api`
+### API on Render
+- This repo includes `render.yaml` configured for `apps/api`.
+- In Render, create a new Blueprint service from this repository.
+- Set required secret env vars in Render:
   - `MONGODB_URI`
   - `JWT_SECRET`
-  - `WEB_ORIGIN` (your Render web URL, or comma-separated list)
+  - `WEB_ORIGIN` (your Vercel URL, or comma-separated list)
   - `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` (if you use image uploads)
   - `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_NAME` (if you want bootstrap admin creation)
-- `qpt-web`
-  - `NEXT_PUBLIC_API_BASE` (example: `https://qpt-api.onrender.com`)
+
+### Web on Vercel
+- Create a Vercel project using this repository.
+- Set **Root Directory** to `apps/web`.
+- `apps/web/vercel.json` is included for Next.js install/build/dev commands.
+- Set env var in Vercel:
+  - `NEXT_PUBLIC_API_BASE` = your Render API URL (example: `https://qpt-api.onrender.com`)

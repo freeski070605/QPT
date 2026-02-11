@@ -27,14 +27,3 @@ services:
         sync: false
       - key: ADMIN_NAME
         sync: false
-  - type: web
-    name: qpt-web
-    runtime: node
-    rootDir: apps/web
-    buildCommand: npm install && npm run build
-    startCommand: npm run start
-    envVars:
-      - key: NODE_ENV
-        value: production
-      - key: NEXT_PUBLIC_API_BASE
-        value: https://qpt-api.onrender.com
