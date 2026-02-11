@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-bg: #ffffff;
+  --brand-primary: #0f3d2e;
+  --brand-accent: #1e6b4c;
+  --brand-neutral: #f5f7f6;
+  --brand-text: #1a1a1a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--brand-bg);
+  color: var(--brand-text);
+}
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display font-medium tracking-wide text-brand-primary;
+  }
+}
+
+@layer components {
+  .brand-shell {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-10;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm uppercase tracking-[0.2em] text-white transition hover:bg-brand-accent;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center rounded-full border border-brand-primary px-6 py-3 text-sm uppercase tracking-[0.2em] text-brand-primary transition hover:bg-brand-primary hover:text-white;
+  }
+
+  .section-pad {
+    @apply py-14 sm:py-20;
+  }
+}
