@@ -168,7 +168,7 @@ export async function deleteArtwork(token: string, artworkId: string) {
   });
 }
 
-export async function uploadArtworkImage(token: string, payload: { dataUrl: string; folder?: string }) {
+export async function uploadArtworkImage(token: string, payload: { dataUrl: string }) {
   return request<{
     secureUrl: string;
     publicId: string;

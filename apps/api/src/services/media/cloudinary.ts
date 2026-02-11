@@ -9,8 +9,9 @@ type UploadResult = {
   format?: string;
 };
 
-export async function uploadImageDataUrl(dataUrl: string, folder = "artworks"): Promise<UploadResult> {
+export async function uploadImageDataUrl(dataUrl: string): Promise<UploadResult> {
   const env = loadEnv();
+  const folder = env.cloudinaryUploadFolder;
 
   if (!env.cloudinaryCloudName || !env.cloudinaryApiKey || !env.cloudinaryApiSecret) {
     throw new Error("Cloudinary is not configured.");

@@ -39,8 +39,7 @@ const listQuerySchema = z.object({
 });
 
 const artworkImageUploadSchema = z.object({
-  dataUrl: z.string().startsWith("data:image/"),
-  folder: z.string().trim().min(1).max(100).optional()
+  dataUrl: z.string().startsWith("data:image/")
 });
 
 artworksRouter.get("/", async (req, res) => {
@@ -70,7 +69,7 @@ artworksRouter.get("/", async (req, res) => {
 
 artworksRouter.post("/upload-image", authGuard, requireRole(["admin"]), async (req, res) => {
   const parsed = artworkImageUploadSchema.parse(req.body);
-  const upload = await uploadImageDataUrl(parsed.dataUrl, parsed.folder ?? "artworks");
+  const upload = await uploadImageDataUrl(parsed.dataUrl);
   res.status(201).json(upload);
 });
 

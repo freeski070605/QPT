@@ -178,7 +178,7 @@ export function AdminDashboard() {
 
       for (const file of Array.from(files)) {
         const dataUrl = await fileToDataUrl(file);
-        const response = await uploadArtworkImage(token, { dataUrl, folder: "artworks" });
+        const response = await uploadArtworkImage(token, { dataUrl });
         uploadedUrls.push(response.secureUrl);
       }
 

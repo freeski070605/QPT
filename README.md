@@ -29,7 +29,7 @@ Commands (from repo root):
   - `MONGODB_URI`
   - `JWT_SECRET`
   - `WEB_ORIGIN` (your Vercel URL, or comma-separated list)
-  - `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` (if you use image uploads)
+  - `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` / `CLOUDINARY_UPLOAD_FOLDER` (if you use image uploads)
   - `ADMIN_EMAIL` / `ADMIN_PASSWORD` / `ADMIN_NAME` (if you want bootstrap admin creation)
 
 ### Web on Vercel
